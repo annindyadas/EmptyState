@@ -1,0 +1,29 @@
+<div class="slds-illustration slds-illustration_small" aria-hidden="true">
+                <img src="/img/chatter/OpenRoad.svg" class="slds-illustration__svg" alt=""/>
+                    <template if:true={goToDealMsg}>
+                        <div class="slds-text-longform">
+                            <lightning-formatted-text value="Please go to appropriate deal to set the Budget."></lightning-formatted-text>
+                        </div>
+                        <div class="slds-p-top_medium">
+                            <lightning-button label="Go To Deals" variant="brand" onclick={handleGoToDeals} ></lightning-button>
+                        </div>
+                    </template>
+                    <template if:false={goToDealMsg}>
+                        <template if:false={showDraftMsg}>
+                            <div class="slds-text-longform">
+                                <lightning-formatted-text value="There is no budget setup, click 'New Budget' button below to get started!"></lightning-formatted-text>
+                            </div>
+                            <div class="slds-p-top_medium">
+                                <lightning-button label="New Budget" variant="brand" onclick={handleAddBudget} ></lightning-button>
+                            </div>
+                        </template>
+                        <template if:true={showDraftMsg}>
+                            <div class="slds-text-longform">
+                                <lightning-formatted-text value="There is a draft budget present, click 'Edit Draft Budget' button below to continue!"></lightning-formatted-text>
+                            </div>
+                            <div class="slds-p-top_medium">
+                                <lightning-button label="Edit Draft Budget" variant="brand" onclick={handleAddBudget} ></lightning-button>
+                            </div>
+                        </template>
+                </template>
+            </div>
